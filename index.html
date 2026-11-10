@@ -1,146 +1,85 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <base target="_top">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{--purple:#7956b8;--deep:#56358e;--pale:#f3edff;--ink:#302747;--muted:#786f89;--line:#e8def7}
-    *{box-sizing:border-box} body{margin:0;font-family:'Prompt',sans-serif;color:var(--ink);background:linear-gradient(135deg,#f8f5ff,#eee7fb);min-height:100vh}
-    .wrap{max-width:1060px;margin:auto;padding:28px 18px 50px}
-    .hero{position:relative;overflow:hidden;border-radius:26px;padding:32px 34px;background:linear-gradient(115deg,#6846a4,#9b7bd0);color:white;display:flex;align-items:center;justify-content:space-between;gap:20px;box-shadow:0 15px 35px #65469a30}
-    .hero h1{font-size:clamp(23px,3.2vw,34px);line-height:1.35;margin:0 0 8px;font-weight:600}.hero p{margin:0;color:#f1eaff;font-size:15px}
-    .hero-art{width:210px;min-width:150px;filter:drop-shadow(0 12px 12px #3b236b40)}
-    .card{background:#fff;border:1px solid #eee7f8;border-radius:22px;padding:28px;margin-top:22px;box-shadow:0 10px 28px #5940800d}
-    .section-title{font-size:19px;font-weight:600;margin:0 0 18px;display:flex;align-items:center;gap:10px}.section-title:before{content:'';width:7px;height:25px;border-radius:8px;background:var(--purple)}
-    label{display:block;font-size:14px;font-weight:500;margin:0 0 8px}
-    select,input{font:inherit;width:100%;border:1px solid var(--line);border-radius:12px;padding:13px 14px;background:#fff;color:var(--ink);outline:none;transition:.2s}
-    select:focus,input:focus{border-color:#9b7bd0;box-shadow:0 0 0 3px #9b7bd022}
-    .unit-field{max-width:480px}.hint{font-size:12px;color:var(--muted);margin-top:8px}
-    .book-list{display:grid;gap:14px}.book-item{border:1px solid var(--line);background:#fdfbff;border-radius:16px;padding:17px}
-    .book-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}.book-no{font-weight:600;color:var(--deep);font-size:14px}
-    .fields{display:grid;grid-template-columns:1.2fr 1fr;gap:13px}
-    .remove{border:0;background:#fbeef2;color:#b34b68;border-radius:9px;padding:6px 10px;font:inherit;font-size:12px;cursor:pointer}
-    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}.btn{border:0;border-radius:12px;padding:12px 19px;font:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:.2s}
-    .btn-add{background:var(--pale);color:var(--deep)}.btn-submit{background:linear-gradient(110deg,#7652b4,#9875ce);color:#fff;box-shadow:0 7px 16px #7956b833}.btn:hover{transform:translateY(-1px);filter:brightness(.98)}.btn:disabled{opacity:.6;cursor:wait;transform:none}
-    .foot{text-align:center;color:#8a8198;font-size:12px;margin:22px 0 0}.required{color:#c34e72}
-    .notice{display:none;border-radius:12px;padding:13px 15px;margin-top:17px;font-size:14px}.success{display:block;background:#eaf8f0;color:#216a43}.error{display:block;background:#fff0f1;color:#a33c50}
-    @media(max-width:650px){.wrap{padding:15px 12px 32px}.hero{padding:24px 21px;border-radius:20px}.hero-art{width:115px;min-width:100px}.hero p{font-size:13px}.card{padding:20px 16px;border-radius:18px}.fields{grid-template-columns:1fr;gap:10px}.book-item{padding:14px}.actions .btn{width:100%}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>เสนอความต้องการหนังสือ | ห้องสมุด กสป.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--purple:#7956b8;--deep:#56358e;--pale:#f3edff;--ink:#302747;--muted:#786f89;--line:#e8def7}
+*{box-sizing:border-box}body{margin:0;font-family:Prompt,sans-serif;color:var(--ink);background:linear-gradient(135deg,#f8f5ff,#eee7fb);min-height:100vh}
+.wrap{max-width:1060px;margin:auto;padding:28px 18px 50px}.hero{position:relative;overflow:hidden;border-radius:26px;padding:32px 34px;background:linear-gradient(115deg,#6846a4,#9b7bd0);color:white;display:flex;align-items:center;justify-content:space-between;gap:20px;box-shadow:0 15px 35px #65469a30}
+.hero h1{font-size:clamp(23px,3.2vw,34px);line-height:1.35;margin:0 0 8px;font-weight:600}.hero p{margin:0;color:#f1eaff;font-size:15px}.hero-art{width:210px;min-width:150px;filter:drop-shadow(0 12px 12px #3b236b40)}
+.card{background:#fff;border:1px solid #eee7f8;border-radius:22px;padding:28px;margin-top:22px;box-shadow:0 10px 28px #5940800d}.section-title{font-size:19px;font-weight:600;margin:0 0 18px;display:flex;align-items:center;gap:10px}.section-title:before{content:'';width:7px;height:25px;border-radius:8px;background:var(--purple)}
+label{display:block;font-size:14px;font-weight:500;margin:0 0 8px}select,input{font:inherit;width:100%;border:1px solid var(--line);border-radius:12px;padding:13px 14px;background:#fff;color:var(--ink);outline:none;transition:.2s}select:focus,input:focus{border-color:#9b7bd0;box-shadow:0 0 0 3px #9b7bd022}.unit-field{max-width:480px}.hint{font-size:12px;color:var(--muted);margin-top:8px}
+.book-list{display:grid;gap:14px}.book-item{border:1px solid var(--line);background:#fdfbff;border-radius:16px;padding:17px}.book-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}.book-no{font-weight:600;color:var(--deep);font-size:14px}.fields{display:grid;grid-template-columns:1.2fr 1fr;gap:13px}
+.remove{border:0;background:#fbeef2;color:#b34b68;border-radius:9px;padding:6px 10px;font:inherit;font-size:12px;cursor:pointer}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}.btn{border:0;border-radius:12px;padding:12px 19px;font:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:.2s}.btn-add{background:var(--pale);color:var(--deep)}.btn-submit{background:linear-gradient(110deg,#7652b4,#9875ce);color:#fff;box-shadow:0 7px 16px #7956b833}.btn:hover{transform:translateY(-1px);filter:brightness(.98)}.btn:disabled{opacity:.6;cursor:wait;transform:none}
+.foot{text-align:center;color:#8a8198;font-size:12px;margin:22px 0 0}.required{color:#c34e72}.notice{display:none;border-radius:12px;padding:13px 15px;margin-top:17px;font-size:14px}.success{display:block;background:#eaf8f0;color:#216a43}.error{display:block;background:#fff0f1;color:#a33c50}
+@media(max-width:650px){.wrap{padding:15px 12px 32px}.hero{padding:24px 21px;border-radius:20px}.hero-art{width:115px;min-width:100px}.hero p{font-size:13px}.card{padding:20px 16px;border-radius:18px}.fields{grid-template-columns:1fr;gap:10px}.book-item{padding:14px}.actions .btn{width:100%}}
+</style>
 </head>
 <body>
-  <main class="wrap">
-    <header class="hero">
-      <div>
-        <h1>เสนอความต้องการหนังสือ</h1>
-        <p>ร่วมคัดสรรหนังสือ เพื่อพัฒนาทรัพยากรสารสนเทศ<br>ห้องสมุด กสป.รร.ตท.สปท.</p>
-      </div>
-      <svg class="hero-art" viewBox="0 0 230 175" role="img" aria-label="ภาพประกอบหนังสือ">
-        <ellipse cx="116" cy="158" rx="100" ry="11" fill="#4b2d78" opacity=".25"/>
-        <g transform="translate(25 25) rotate(-8 50 70)">
-          <rect x="8" y="13" width="75" height="112" rx="7" fill="#f5c6d7"/><rect x="15" y="18" width="63" height="102" rx="4" fill="#fff4f7"/>
-          <path d="M28 42h37M28 51h30M28 60h34" stroke="#b56c91" stroke-width="3" stroke-linecap="round"/><path d="M28 84q18-17 36 0v15q-18-17-36 0z" fill="#d68eae"/>
-        </g>
-        <g transform="translate(82 8) rotate(5 50 70)">
-          <rect x="7" y="8" width="83" height="128" rx="7" fill="#e9d9ff"/><rect x="14" y="14" width="69" height="116" rx="4" fill="#7655ad"/>
-          <path d="M29 42h39M29 51h31M29 60h35" stroke="#e8dafa" stroke-width="3" stroke-linecap="round"/><path d="M31 91l18-17 18 17v17H31z" fill="#c5a9ed"/>
-        </g>
-        <g transform="translate(145 40) rotate(12 30 50)">
-          <rect x="5" y="5" width="58" height="94" rx="6" fill="#f5d99d"/><rect x="11" y="11" width="46" height="82" rx="3" fill="#fff7e7"/>
-          <path d="M21 32h26M21 40h22M21 48h24" stroke="#c69b4b" stroke-width="2.5" stroke-linecap="round"/><circle cx="34" cy="70" r="10" fill="#e9bd6d"/>
-        </g>
-        <path d="M21 22l5-9 5 9 9 5-9 5-5 9-5-9-9-5zM190 15l3-6 3 6 6 3-6 3-3 6-3-6-6-3z" fill="#fff1b8"/>
-      </svg>
-    </header>
+<main class="wrap">
+<header class="hero">
+<div><h1>เสนอความต้องการหนังสือ</h1><p>ร่วมคัดสรรหนังสือ เพื่อพัฒนาทรัพยากรสารสนเทศ<br>ห้องสมุด กสป.รร.ตท.สปท.</p></div>
+<svg class="hero-art" viewBox="0 0 230 175" role="img" aria-label="ภาพประกอบหนังสือ">
+<ellipse cx="116" cy="158" rx="100" ry="11" fill="#4b2d78" opacity=".25"/>
+<g transform="translate(25 25) rotate(-8 50 70)"><rect x="8" y="13" width="75" height="112" rx="7" fill="#f5c6d7"/><rect x="15" y="18" width="63" height="102" rx="4" fill="#fff4f7"/><path d="M28 42h37M28 51h30M28 60h34" stroke="#b56c91" stroke-width="3" stroke-linecap="round"/><path d="M28 84q18-17 36 0v15q-18-17-36 0z" fill="#d68eae"/></g>
+<g transform="translate(82 8) rotate(5 50 70)"><rect x="7" y="8" width="83" height="128" rx="7" fill="#e9d9ff"/><rect x="14" y="14" width="69" height="116" rx="4" fill="#7655ad"/><path d="M29 42h39M29 51h31M29 60h35" stroke="#e8dafa" stroke-width="3" stroke-linecap="round"/><path d="M31 91l18-17 18 17v17H31z" fill="#c5a9ed"/></g>
+<g transform="translate(145 40) rotate(12 30 50)"><rect x="5" y="5" width="58" height="94" rx="6" fill="#f5d99d"/><rect x="11" y="11" width="46" height="82" rx="3" fill="#fff7e7"/><path d="M21 32h26M21 40h22M21 48h24" stroke="#c69b4b" stroke-width="2.5" stroke-linecap="round"/><circle cx="34" cy="70" r="10" fill="#e9bd6d"/></g>
+<path d="M21 22l5-9 5 9 9 5-9 5-5 9-5-9-9-5zM190 15l3-6 3 6 6 3-6 3-3 6-3-6-6-3z" fill="#fff1b8"/>
+</svg></header>
+<section class="card"><h2 class="section-title">ข้อมูลหน่วยงาน</h2><div class="unit-field">
+<label for="unit">หน่วย <span class="required">*</span></label>
+<select id="unit" required><option value="">— กรุณาเลือกหน่วย —</option><option>สกศ.ฯ</option><option>กรม นร.ฯ</option><option>กพล.ฯ</option><option>กสน.ฯ</option><option>กพท.ฯ</option><option>กวท.ฯ</option><option>กทส.ฯ</option><option>สมท.บก.ฯ</option><option>บก.รร.ตท.สปท.</option><option>ร้อย.บร.ฯ</option></select>
+<div class="hint">เลือกหน่วยที่เสนอความต้องการจัดหาหนังสือ</div></div></section>
+<section class="card"><h2 class="section-title">รายการหนังสือที่ต้องการ</h2><div id="bookList" class="book-list"></div>
+<div class="actions"><button type="button" class="btn btn-add" onclick="addBook()">＋ เพิ่มรายการหนังสือ</button><button type="button" class="btn btn-submit" id="submitBtn" onclick="submitForm()">ส่งข้อมูลเสนอความต้องการ</button></div><div id="notice" class="notice" role="status" aria-live="polite"></div></section>
+<p class="foot">ห้องสมุด กสป.รร.ตท.สปท. · ระบบเสนอความต้องการจัดหาทรัพยากรสารสนเทศ</p>
+</main>
+<script>
+/* URL Google Apps Script Web App ที่ผู้ใช้ให้มา */
+const API_URL = 'https://script.google.com/macros/s/AKfycbwAPKRMDh0AA9WJXebZ2zgpWtoRJXJpU0Xjmfx3a7y9p2r0Vg-uHC78XNDJOAAsM3Zy7Q/exec';
 
-    <section class="card">
-      <h2 class="section-title">ข้อมูลหน่วยงาน</h2>
-      <div class="unit-field">
-        <label for="unit">หน่วย <span class="required">*</span></label>
-        <select id="unit" required>
-          <option value="">— กรุณาเลือกหน่วย —</option>
-          <option>สกศ.ฯ</option><option>กรม นร.ฯ</option><option>กพล.ฯ</option>
-          <option>กสน.ฯ</option><option>กพท.ฯ</option><option>กวท.ฯ</option>
-          <option>กทส.ฯ</option><option>สมท.บก.ฯ</option><option>บก.รร.ตท.สปท.</option><option>ร้อย.บร.ฯ</option>
-        </select>
-        <div class="hint">เลือกหน่วยที่เสนอความต้องการจัดหาหนังสือ</div>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2 class="section-title">รายการหนังสือที่ต้องการ</h2>
-      <div id="bookList" class="book-list"></div>
-      <div class="actions">
-        <button type="button" class="btn btn-add" onclick="addBook()">＋ เพิ่มรายการหนังสือ</button>
-        <button type="button" class="btn btn-submit" id="submitBtn" onclick="submitForm()">ส่งข้อมูลเสนอความต้องการ</button>
-      </div>
-      <div id="notice" class="notice" role="status" aria-live="polite"></div>
-    </section>
-    <p class="foot">ห้องสมุด กสป.รร.ตท.สปท. · ระบบเสนอความต้องการจัดหาทรัพยากรสารสนเทศ</p>
-  </main>
-
-  <script>
-    let nextId = 0;
-    function addBook() {
-      const id = ++nextId;
-      const item = document.createElement('div');
-      item.className = 'book-item'; item.dataset.id = id;
-      item.innerHTML = `
-        <div class="book-head"><span class="book-no">รายการหนังสือที่ ${document.querySelectorAll('.book-item').length + 1}</span>
-          <button type="button" class="remove" onclick="removeBook(${id})">ลบรายการ</button></div>
-        <div class="fields">
-          <div><label>ชื่อหนังสือ <span class="required">*</span></label><input class="title" type="text" maxlength="250" placeholder="ระบุชื่อหนังสือ"></div>
-          <div><label>ชื่อผู้แต่ง <span class="required">*</span></label><input class="author" type="text" maxlength="200" placeholder="ระบุชื่อผู้แต่ง"></div>
-        </div>`;
-      document.getElementById('bookList').appendChild(item);
-      renumber();
-    }
-    function removeBook(id) {
-      const item = document.querySelector('.book-item[data-id="' + id + '"]');
-      if (item) item.remove();
-      if (!document.querySelector('.book-item')) addBook();
-      renumber();
-    }
-    function renumber() {
-      document.querySelectorAll('.book-item').forEach((el, i) => {
-        el.querySelector('.book-no').textContent = 'รายการหนังสือที่ ' + (i + 1);
-      });
-    }
-    function showNotice(message, type) {
-      const box = document.getElementById('notice');
-      box.textContent = message; box.className = 'notice ' + type;
-    }
-    function submitForm() {
-      const unit = document.getElementById('unit').value;
-      if (!unit) { showNotice('กรุณาเลือกหน่วยก่อนส่งข้อมูล', 'error'); document.getElementById('unit').focus(); return; }
-      const books = [...document.querySelectorAll('.book-item')].map(el => ({
-        title: el.querySelector('.title').value.trim(),
-        author: el.querySelector('.author').value.trim()
-      }));
-      if (!books.length || books.some(b => !b.title || !b.author)) {
-        showNotice('กรุณากรอกชื่อหนังสือและชื่อผู้แต่งให้ครบทุกช่อง', 'error'); return;
-      }
-      const btn = document.getElementById('submitBtn');
-      btn.disabled = true; btn.textContent = 'กำลังบันทึกข้อมูล...';
-      google.script.run
-        .withSuccessHandler(result => {
-          showNotice('บันทึกข้อมูลเรียบร้อยแล้ว เลขที่คำขอ ' + result.requestId + ' (จำนวน ' + result.count + ' รายการ)', 'success');
-          document.getElementById('unit').value = '';
-          document.getElementById('bookList').innerHTML = '';
-          addBook();
-          btn.disabled = false; btn.textContent = 'ส่งข้อมูลเสนอความต้องการ';
-          window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
-        })
-        .withFailureHandler(error => {
-          showNotice(error && error.message ? error.message : 'ไม่สามารถบันทึกข้อมูลได้ กรุณาลองใหม่', 'error');
-          btn.disabled = false; btn.textContent = 'ส่งข้อมูลเสนอความต้องการ';
-        })
-        .submitBookRequests({unit, books});
-    }
-    addBook();
-  </script>
+let nextId=0;
+function addBook(){
+ const id=++nextId, item=document.createElement('div');
+ item.className='book-item'; item.dataset.id=id;
+ item.innerHTML=`<div class="book-head"><span class="book-no"></span><button type="button" class="remove" onclick="removeBook(${id})">ลบรายการ</button></div>
+ <div class="fields"><div><label>ชื่อหนังสือ <span class="required">*</span></label><input class="title" type="text" maxlength="250" placeholder="ระบุชื่อหนังสือ"></div>
+ <div><label>ชื่อผู้แต่ง <span class="required">*</span></label><input class="author" type="text" maxlength="200" placeholder="ระบุชื่อผู้แต่ง"></div></div>`;
+ document.getElementById('bookList').appendChild(item); renumber();
+}
+function removeBook(id){
+ const item=document.querySelector('.book-item[data-id="'+id+'"]'); if(item)item.remove();
+ if(!document.querySelector('.book-item'))addBook(); renumber();
+}
+function renumber(){document.querySelectorAll('.book-item').forEach((el,i)=>el.querySelector('.book-no').textContent='รายการหนังสือที่ '+(i+1));}
+function showNotice(message,type){const box=document.getElementById('notice');box.textContent=message;box.className='notice '+type;}
+function submitForm(){
+ const unit=document.getElementById('unit').value;
+ if(!unit){showNotice('กรุณาเลือกหน่วยก่อนส่งข้อมูล','error');document.getElementById('unit').focus();return;}
+ const books=[...document.querySelectorAll('.book-item')].map(el=>({title:el.querySelector('.title').value.trim(),author:el.querySelector('.author').value.trim()}));
+ if(!books.length||books.some(b=>!b.title||!b.author)){showNotice('กรุณากรอกชื่อหนังสือและชื่อผู้แต่งให้ครบทุกช่อง','error');return;}
+ const btn=document.getElementById('submitBtn');btn.disabled=true;btn.textContent='กำลังบันทึกข้อมูล...';
+ const callback='bookRequestCallback_'+Date.now(), script=document.createElement('script');let finished=false;
+ const timer=setTimeout(()=>{cleanup();showNotice('หมดเวลารอการเชื่อมต่อ กรุณาตรวจสอบว่า Google Apps Script ใช้โค้ด API เวอร์ชันล่าสุดและ Deploy แล้ว','error');resetButton();},30000);
+ function cleanup(){clearTimeout(timer);if(script.parentNode)script.parentNode.removeChild(script);try{delete window[callback];}catch(e){window[callback]=undefined;}}
+ function resetButton(){btn.disabled=false;btn.textContent='ส่งข้อมูลเสนอความต้องการ';}
+ window[callback]=result=>{
+  finished=true;cleanup();resetButton();
+  if(result&&result.success){
+   showNotice('บันทึกข้อมูลเรียบร้อยแล้ว เลขที่คำขอ '+result.requestId+' (จำนวน '+result.count+' รายการ)','success');
+   document.getElementById('unit').value='';document.getElementById('bookList').innerHTML='';addBook();
+  }else showNotice(result&&result.message?result.message:'ไม่สามารถบันทึกข้อมูลได้','error');
+ };
+ script.onerror=()=>{if(!finished){cleanup();resetButton();showNotice('เรียก API ไม่สำเร็จ กรุณาตรวจสอบ URL และสิทธิ์การ Deploy','error');}};
+ script.src=API_URL+'?action=submit&callback='+callback+'&payload='+encodeURIComponent(JSON.stringify({unit,books}));
+ document.body.appendChild(script);
+}
+addBook();
+</script>
 </body>
 </html>
